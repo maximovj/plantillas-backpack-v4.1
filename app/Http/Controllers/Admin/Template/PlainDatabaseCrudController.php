@@ -21,8 +21,8 @@ class PlainDatabaseCrudController extends CrudController
         CRUD::setEntityNameStrings('plain database', 'plain databases');
 
         $this->data['crud'] = $this->crud;
-        $this->data['title'] = 'Plantilla CRUD';
-        $this->data['subtitle'] = 'Plain Database';
+        $this->data['title'] = 'Plain Database';
+        $this->data['subtitle'] = 'Plantilla CRUD';
 
         return view('app_web.plain_databasejs', $this->data);
     }
