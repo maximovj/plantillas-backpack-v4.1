@@ -22,8 +22,8 @@ class PlainFormContentCrudController extends CrudController
 
         // Definir variables para la vista
         $this->data['crud'] = $this->crud;
-        $this->data['title'] = 'Plantilla CRUD';
-        $this->data['subtitle'] = 'Plain Form Content';
+        $this->data['title'] = 'Plain Form Content';
+        $this->data['subtitle'] = 'Plantilla CRUD';
 
         return view('app_web.plain_form_content', $this->data);
     }

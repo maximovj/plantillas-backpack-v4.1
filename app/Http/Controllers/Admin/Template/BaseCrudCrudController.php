@@ -23,8 +23,8 @@ class BaseCrudCrudController extends CrudController
 
         // Definir variables para la vista
         $this->data['crud'] = $this->crud;
-        $this->data['title'] = 'Plantilla CRUD';
-        $this->data['subtitle'] = 'BaseCrud';
+        $this->data['title'] = 'Base Crud';
+        $this->data['subtitle'] = 'Plantilla CRUD';
 
         return view('app_web.base_crud', $this->data);
     }
