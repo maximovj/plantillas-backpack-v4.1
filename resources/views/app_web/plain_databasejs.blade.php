@@ -6,7 +6,7 @@
      * @return void
      */
 @endphp
-@extends(backpack_view('template.setup_datatablejs'))
+@extends(backpack_view('template.setup.setup_datatablejs'))
 
 @php
 $defaultBreadcrumbs = [

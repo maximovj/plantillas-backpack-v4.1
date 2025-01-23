@@ -93,7 +93,7 @@ content that will be included in the layout after the scripts are loaded.
 <script type="text/javascript" src="{{ asset('js/lib/dataTables.cellEdit.js') }}"></script>
 
 {{-- Config DataTable for Audfk Crud Table  --}}
-@include('vendor.backpack.template.config_datatable');
+@include('vendor.backpack.template.datatable.config_datatable');
 
 {{-- CellEdit --}}
 @yield('init_datatable')
