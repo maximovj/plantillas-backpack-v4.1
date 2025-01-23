@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\Template\BaseCrudCrudController;
+use App\Http\Controllers\Admin\Template\PlainDatabaseCrudController;
 use Illuminate\Support\Facades\Route;
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -25,6 +26,10 @@ if(!function_exists('custom_admin'))
         Route::get('/base-crud', 
         [BaseCrudCrudController::class, 'setup'])
         ->name('templates.base.crud');
+
+        Route::get('/plain-database', 
+        [PlainDatabaseCrudController::class, 'setup'])
+        ->name('templates.plain.database.crud');
     }
 }
 

@@ -20,5 +20,10 @@
                 <i class='nav-icon la la-table'></i>&nbsp;{{__('Base Crud')}}
             </a>
         </li>
+        <li class='nav-item'>
+            <a class='nav-link' href='{{ route('templates.plain.database.crud') }}'>
+                <i class='nav-icon la la-table'></i>&nbsp;{{__('Plain Database')}}
+            </a>
+        </li>
     </ul>
 </li>
