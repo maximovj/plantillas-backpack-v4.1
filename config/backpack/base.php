@@ -60,6 +60,9 @@ return [
 
         // Example (load font-awesome instead of line-awesome):
         // 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css',
+
+        // Example (Custom CSS)
+        'packages/backpack/base/css/custom.css',
     ],
 
     // CSS files that are loaded in all pages, using Laravel's mix() helper
@@ -106,10 +109,10 @@ return [
     // change background color with bg-dark, bg-primary, bg-secondary, bg-danger, bg-warning, bg-success, bg-info, bg-blue, bg-light-blue, bg-indigo, bg-purple, bg-pink, bg-red, bg-orange, bg-yellow, bg-green, bg-teal, bg-cyan, bg-white
 
     // Developer or company name. Shown in footer.
-    'developer_name' => 'Cristian Tabacitu',
+    'developer_name' => 'Victor J. Maximo A.',
 
     // Developer website. Link in footer. Type false if you want to hide it.
-    'developer_link' => 'http://tabacitu.ro',
+    'developer_link' => 'https://programmerauditore.github.io/portafolio/',
 
     // Show powered by Laravel Backpack in the footer? true/false
     'show_powered_by' => true,
@@ -119,11 +122,34 @@ return [
     // -------
 
     // JS files that are loaded in all pages, using Laravel's asset() helper
+    // this is custom links for /public/js
+    'head_scripts' => [
+        'JQuery v3.6.0' => 'js/lib/jquery-3.6.0.min.js',
+        'PDF-Lib Js v1.17.1' => 'js/lib/pdf-lib.min.js',
+        'Download Js v1.4.7' => 'js/lib/download.js',
+        'SweetAlert2 v2.11' => 'js/lib/sweetalert2@11.js',
+        'Chart.js v4.4.1' => 'js/lib/chart.js',
+        'DataTables Js v1.13.7' => 'js/lib/jquery.dataTables.js',
+
+        // Custom JS
+        'generate_pdf.js' => 'js/custom/generate_pdf.js',
+        'functions.js' => 'js/custom/functions.js',
+        'dashboard.js' => 'js/custom/dashboard.js',
+    ],
+
+    // JS files that are loaded in all pages, using Laravel's asset() helper
     'scripts' => [
         // Backstrap includes jQuery, Bootstrap, CoreUI, PNotify, Popper
         'packages/backpack/base/js/bundle.js',
+        'packages/backpack/base/js/custom.js',
 
         // examples (everything inside the bundle, loaded from CDN)
+        //'https://code.jquery.com/jquery-3.6.0.min.js',
+        //'https://cdn.jsdelivr.net/npm/sweetalert2@11',
+        //'https://cdn.jsdelivr.net/npm/chart.js',
+        //'https://unpkg.com/pdf-lib@1.17.1',
+        //'https://unpkg.com/downloadjs@1.4.7'
+
         // 'https://code.jquery.com/jquery-3.4.1.min.js',
         // 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js',
         // 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js',
@@ -136,10 +162,14 @@ return [
         // 'https://unpkg.com/vue@2.4.4/dist/vue.min.js',
         // 'https://unpkg.com/react@16/umd/react.production.min.js',
         // 'https://unpkg.com/react-dom@16/umd/react-dom.production.min.js',
+
+        // custom js finanz
+        'js/lib/chart-utils.min.js', // https://github.com/imhvost/chart-utils/blob/master/dist/chart-utils.min.js
+        'js/lib/chart.js', //'https://cdn.jsdelivr.net/npm/chart.js',
     ],
 
     // JS files that are loaded in all pages, using Laravel's mix() helper
-    'mix_scripts' => [// file_path => manifest_directory_path
+    'mix_scripts' => [ // file_path => manifest_directory_path
         // 'js/app.js' => '',
     ],
 
