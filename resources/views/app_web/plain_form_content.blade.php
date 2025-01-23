@@ -6,7 +6,7 @@
      * @return void
      */
 @endphp
-@extends(backpack_view('template.setup_styles_js'))
+@extends(backpack_view('template.setup.setup_styles_js'))
 
 @php
 $defaultBreadcrumbs = [
