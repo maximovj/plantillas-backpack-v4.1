@@ -25,5 +25,10 @@
                 <i class='nav-icon la la-table'></i>&nbsp;{{__('Plain Database')}}
             </a>
         </li>
+        <li class='nav-item'>
+            <a class='nav-link' href='{{ route('templates.plain.form.content.crud') }}'>
+                <i class='nav-icon la la-table'></i>&nbsp;{{__('Plain Form Content')}}
+            </a>
+        </li>
     </ul>
 </li>

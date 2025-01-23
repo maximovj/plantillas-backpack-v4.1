@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\Template\BaseCrudCrudController;
 use App\Http\Controllers\Admin\Template\PlainDatabaseCrudController;
+use App\Http\Controllers\Admin\Template\PlainFormContentCrudController;
 use Illuminate\Support\Facades\Route;
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -30,6 +31,10 @@ if(!function_exists('custom_admin'))
         Route::get('/plain-database', 
         [PlainDatabaseCrudController::class, 'setup'])
         ->name('templates.plain.database.crud');
+
+        Route::get('/plain-form-content', 
+        [PlainFormContentCrudController::class, 'setup'])
+        ->name('templates.plain.form.content.crud');
     }
 }
 
