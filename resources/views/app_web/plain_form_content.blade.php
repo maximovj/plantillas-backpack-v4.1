@@ -118,12 +118,17 @@ $breadcrumbs = $breadcrumbs ?? $defaultBreadcrumbs;
                         </select>
                     </div>
 
-                    <div class="form-group col-sm-12 mb-3 required" element="div" bp-field-wrapper="true" bp-field-name="closing_balance" bp-field-type="number" bp-section="crud-field">
-                        <label><strong>Seleccione archivo</strong></label>
-                        <div class="custom-file">
-                            <input type="file" name="archivo-excel" class="custom-file-input" accept=".xlsx, .xls" required>
-                            <label class="custom-file-label" for="customFileLang">Seleccione un archivo excel...</label>
-                            <div class="invalid-feedback">Este archivo no tiene extensión .xlsx o .xls</div>
+                    <div class="col-sm-12 mb-3 required p-3" element="div" bp-field-wrapper="true" bp-field-name="archivo-excel" bp-field-type="file" bp-section="crud-field">
+                        <label><strong>Seleccione una balanza de comprobación <span class="cbox-req-css"></span></strong></label>
+                        <div class="form-group">
+                            <div class="custom-file">
+                                <input type="file" name="archivo-excel" class="custom-file-input is-invalid" accept=".xlsx, .xls" required>
+                                <label class="custom-file-label" for="customFileLang">Seleccione un archivo excel .xlsx o .xls...</label>
+                                <div class="invalid-feedback">Este archivo no tiene extensión .xlsx o .xls</div>
+                            </div>
+                            <div class="input-group-append">
+                                <span class="input-group-text">Balanza de comprobación</span>
+                            </div>
                         </div>
                     </div>
                 </div>
