@@ -691,19 +691,19 @@ $(document).ready(function () {
             audfk.crud.table.rows().every(function (rowIdx, tableLoop, rowLoop) {
                 var dato = this.data();
                 var id_valor = dato.id;
-                var nivel_valor = $(this.node()).find('td:eq(3)').text();
-                var naturaleza_valor = $(this.node()).find('td:eq(4)').text();
-                var grupo_valor = $(this.node()).find('td:eq(5)').text();
-                var indice_valor = $(this.node()).find('td:eq(6)').text();
+                var sexo_valor = $(this.node()).find('td:eq(3)').text();
+                var profesion_valor = $(this.node()).find('td:eq(4)').text();
+                var hobbie_valor = $(this.node()).find('td:eq(5)').text();
+                var pais_valor = $(this.node()).find('td:eq(6)').text();
 
                 // Make sure the values are not undefined
-                if (dato && nivel_valor && naturaleza_valor && grupo_valor && indice_valor) {
-                    //dato.contable = dato.contable;
+                if (dato && sexo_valor && profesion_valor && hobbie_valor && pais_valor) {
+                    dato.contable = dato.contable;
                     dato.id = id_valor;
-                    dato.nivel = nivel_valor;
-                    dato.naturaleza = naturaleza_valor;
-                    dato.grupo = grupo_valor;
-                    dato.indice = indice_valor;
+                    dato.sexo = sexo_valor;
+                    dato.profesion = profesion_valor;
+                    dato.hobbie = hobbie_valor;
+                    dato.pais = pais_valor;
                     tableData.push(dato);
                 }
             });
