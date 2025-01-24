@@ -135,7 +135,7 @@ $breadcrumbs = $breadcrumbs ?? $defaultBreadcrumbs;
             <div class="card-header">
                 <div style="display: flex; justify-content: space-between; align-items: center;">
                     <span><b>Acciones avanzadas</b></span>
-                    <button id="toggleButton" class="btn btn-warning btn-sm" data-toggle="collapse" data-target="#card-acciones-avanzadas" href="#card-acciones-avanzadas" aria-expanded="false" aria-controls="card-acciones-avanzadas">
+                    <button type="button" role="button" id="toggleButton" class="btn btn-warning btn-sm" data-toggle="collapse" data-target="#card-acciones-avanzadas" href="#card-acciones-avanzadas" aria-expanded="false" aria-controls="card-acciones-avanzadas">
                         <li class="la la-angle-double-down"></li>
                     </button>
                 </div>
@@ -226,14 +226,15 @@ $breadcrumbs = $breadcrumbs ?? $defaultBreadcrumbs;
                         </div>
                         <div class="d-flex justify-content-between">
                             <div>
-                                <button type="button" class="btn btn-sm btn-secondary" id="btnAccionSeleccionarTodos">Seleccionar todos</button>
-                                <button type="button" class="btn btn-sm btn-secondary" id="btnAccionAplicar">Aplicar</button>
-                                <button type="button" class="btn btn-sm btn-secondary" id="btnAccionFiltrar">Filtrar</button>
-                                <button type="button" class="btn btn-sm btn-secondary" id="btnAccionMostrarTodos">Mostrar todos</button>
+                                <button type="button" role="button" class="btn btn-sm btn-secondary" id="btnAccionSeleccionarTodos">Seleccionar todos</button>
+                                <button type="button" role="button" class="btn btn-sm btn-secondary" id="btnAccionAplicar">Aplicar</button>
+                                <button type="button" role="button" class="btn btn-sm btn-secondary" id="btnAccionFiltrar">Filtrar</button>
+                                <button type="button" role="button" class="btn btn-sm btn-secondary" id="btnAccionMostrarTodos">Mostrar todos</button>
                             </div>
                             <div>
                                 <button 
-                                    type="button"
+                                    type="button" 
+                                    role="button"
                                     id="btnGuardar" 
                                     class="btn btn-sm btn-success" 
                                     data-route="{{ route('api.templates.plain.database.advanced') }}">
