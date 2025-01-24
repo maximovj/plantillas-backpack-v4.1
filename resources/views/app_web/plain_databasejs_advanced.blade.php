@@ -149,8 +149,8 @@ $breadcrumbs = $breadcrumbs ?? $defaultBreadcrumbs;
                         <div class="row" id="lstCbxFiltro">
                             <div class="col-md-2">
                                 <div class="form-group">
-                                    <label><input type="checkbox" class="form-check-input-css" name="lst-cbx-col-3" id="lst-cbx-col-3">&nbsp;<b>Sexo</b></label>
-                                    <select class="form-control" id="lst-values-col-3">
+                                    <label><input type="checkbox" class="form-check-input-css" name="slt-cbx-col-3" id="slt-cbx-col-3">&nbsp;<b>Sexo</b></label>
+                                    <select class="form-control" id="slt-values-col-3">
                                         <option value="hombre">Hombre</option>
                                         <option value="mujer">Mujer</option>
                                     </select>
@@ -158,8 +158,8 @@ $breadcrumbs = $breadcrumbs ?? $defaultBreadcrumbs;
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label><input type="checkbox" class="form-check-input-css" name="lst-cbx-col-4" id="lst-cbx-col-4">&nbsp;<b>Profesión</b></label>
-                                    <select class="form-control" id="lst-values-col-4">
+                                    <label><input type="checkbox" class="form-check-input-css" name="slt-cbx-col-4" id="slt-cbx-col-4">&nbsp;<b>Profesión</b></label>
+                                    <select class="form-control" id="slt-values-col-4">
                                         <option value="ninguno">Ninguno</option>
                                         <option value="frontend">Desarrollador FrontEnd</option>
                                         <option value="backend">Desarrollador BackEnd</option>
@@ -170,8 +170,8 @@ $breadcrumbs = $breadcrumbs ?? $defaultBreadcrumbs;
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label><input type="checkbox" class="form-check-input-css" name="lst-cbx-col-5" id="lst-cbx-col-5">&nbsp;<b>Hobbie</b></label>
-                                    <select class="form-control" id="lst-values-col-5">
+                                    <label><input type="checkbox" class="form-check-input-css" name="slt-cbx-col-5" id="slt-cbx-col-5">&nbsp;<b>Hobbie</b></label>
+                                    <select class="form-control" id="slt-values-col-5">
                                         <option value="ninguno">Ninguno</option>
                                         <option value="codear">Programar código</option>
                                         <option value="videojuegos">Jugar videojuegos</option>
@@ -187,10 +187,10 @@ $breadcrumbs = $breadcrumbs ?? $defaultBreadcrumbs;
                                 <div class="form-group">
                                     @include('crud::fields.slt_from_array', [ 'field' => [
                                         'type' => 'slt_from_array',
-                                        'name' => 'lst-values-col-6',
+                                        'name' => 'slt-values-col-6',
                                         'label' => [
                                             'text' => 'País',
-                                            'name' => 'lst-cbx-col-6',
+                                            'name' => 'slt-cbx-col-6',
                                         ],
                                         'options' => [
                                             'ninguno' => 'Ninguno',
@@ -400,7 +400,7 @@ $breadcrumbs = $breadcrumbs ?? $defaultBreadcrumbs;
         {
             column:3,
             type: 'list',
-            options: Array.from(document.getElementById("lst-values-col-3").options).map(option => ({
+            options: Array.from(document.getElementById("slt-values-col-3").options).map(option => ({
                 value: option.value,
                 display: option.text
             })),
@@ -408,7 +408,7 @@ $breadcrumbs = $breadcrumbs ?? $defaultBreadcrumbs;
         {
             column:4,
             type: 'list',
-            options: Array.from(document.getElementById("lst-values-col-4").options).map(option => ({
+            options: Array.from(document.getElementById("slt-values-col-4").options).map(option => ({
                 value: option.value,
                 display: option.text
             })),
@@ -416,7 +416,7 @@ $breadcrumbs = $breadcrumbs ?? $defaultBreadcrumbs;
         {
             column:5,
             type: 'list',
-            options: Array.from(document.getElementById("lst-values-col-5").options).map(option => ({
+            options: Array.from(document.getElementById("slt-values-col-5").options).map(option => ({
                 value: option.value,
                 display: option.text
             })),
@@ -424,7 +424,7 @@ $breadcrumbs = $breadcrumbs ?? $defaultBreadcrumbs;
         {
             column:6,
             type: 'list',
-            options: Array.from(document.getElementById("lst-values-col-6").options).map(option => ({
+            options: Array.from(document.getElementById("slt-values-col-6").options).map(option => ({
                 value: option.value,
                 display: option.text
             })),
@@ -550,26 +550,26 @@ $(document).ready(function () {
                 var fila_tabla = $(this).closest('tr');
 
                 // change the level
-                if (lstCbxFiltro['lst-cbx-col-3']) {
-                    var nuevoNivel = $('#lst-values-col-3').val();
+                if (lstCbxFiltro['slt-cbx-col-3']) {
+                    var nuevoNivel = $('#slt-values-col-3').val();
                     fila_tabla.find('td:eq(3)').text(nuevoNivel ? nuevoNivel : '1');
                 }
 
                 // change the nature
-                if (lstCbxFiltro['lst-cbx-col-4']) {
-                    var nuevoNaturaleza = $('#lst-values-col-4').val();
+                if (lstCbxFiltro['slt-cbx-col-4']) {
+                    var nuevoNaturaleza = $('#slt-values-col-4').val();
                     fila_tabla.find('td:eq(4)').text(nuevoNaturaleza ? nuevoNaturaleza : 'ninguno');
                 }
 
                 // Switch groups
-                if (lstCbxFiltro['lst-cbx-col-5']) {
-                    var nuevoGrupo = $('#lst-values-col-5').val();
+                if (lstCbxFiltro['slt-cbx-col-5']) {
+                    var nuevoGrupo = $('#slt-values-col-5').val();
                     fila_tabla.find('td:eq(5)').text(nuevoGrupo ? nuevoGrupo : 'ninguno');
                 }
 
                 // Add and select a new option in the index
-                if (lstCbxFiltro['lst-cbx-col-6']) {
-                    var nuevoIndice = $('#lst-values-col-6').val();
+                if (lstCbxFiltro['slt-cbx-col-6']) {
+                    var nuevoIndice = $('#slt-values-col-6').val();
                     fila_tabla.find('td:eq(6)').text(nuevoIndice ? nuevoIndice : null);
                 }
             });
@@ -613,18 +613,18 @@ $(document).ready(function () {
             let columna_seleccionada_valor;
             let filtro_seleccionado_valor;
 
-            if (lstCbxFiltro['lst-cbx-col-3']) {
+            if (lstCbxFiltro['slt-cbx-col-3']) {
                 columna_seleccionada_valor = audfk.crud.table.cell(dataIndex, 3).nodes().to$().text();
-                filtro_seleccionado_valor = $('#lst-values-col-3').val();
-            } else if (lstCbxFiltro['lst-cbx-col-4']) {
+                filtro_seleccionado_valor = $('#slt-values-col-3').val();
+            } else if (lstCbxFiltro['slt-cbx-col-4']) {
                 columna_seleccionada_valor = audfk.crud.table.cell(dataIndex, 4).nodes().to$().text();
-                filtro_seleccionado_valor = $('#lst-values-col-4').val();
-            } else if (lstCbxFiltro['lst-cbx-col-5']) {
+                filtro_seleccionado_valor = $('#slt-values-col-4').val();
+            } else if (lstCbxFiltro['slt-cbx-col-5']) {
                 columna_seleccionada_valor = audfk.crud.table.cell(dataIndex, 5).nodes().to$().text();
-                filtro_seleccionado_valor = $('#lst-values-col-5').val();
-            } else if (lstCbxFiltro['lst-cbx-col-6']) {
+                filtro_seleccionado_valor = $('#slt-values-col-5').val();
+            } else if (lstCbxFiltro['slt-cbx-col-6']) {
                 columna_seleccionada_valor = audfk.crud.table.cell(dataIndex, 6).nodes().to$().text();
-                filtro_seleccionado_valor = $('#lst-values-col-6').val();
+                filtro_seleccionado_valor = $('#slt-values-col-6').val();
             } else {
                 // Clear all custom search functions
                 $.fn.dataTable.ext.search.splice(0, $.fn.dataTable.ext.search.length);
