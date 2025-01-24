@@ -130,6 +130,7 @@ $breadcrumbs = $breadcrumbs ?? $defaultBreadcrumbs;
                 <div id="datatable_search_stack" class="mt-sm-0 mt-2 d-print-none"></div>
             </div>
         </div>
+        <form action="#" method="_">
         <div class="card my-2 mx-3" id="header-opt-advance">
             <div class="card-header">
                 <div style="display: flex; justify-content: space-between; align-items: center;">
@@ -182,39 +183,44 @@ $breadcrumbs = $breadcrumbs ?? $defaultBreadcrumbs;
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-3">
                                 <div class="form-group">
-                                    
-                                    <label>
-                                        <input type="checkbox" class="form-check-input-css" name="lst-cbx-col-6" id="lst-cbx-col-6">&nbsp;<b>País</b>
-                                    </label>
-                                    <select class="form-control" id="lst-values-col-6">
-                                        <option value="ninguno">Ninguno</option>
-                                        <option value="andorra">Andorra</option>
-                                        <option value="brasil">Brasil</option>
-                                        <option value="canada">Canadá</option>
-                                        <option value="dinamarca">Dinamarca</option>
-                                        <option value="egipto">Egipto</option>
-                                        <option value="francia">Francia</option>
-                                        <option value="grecia">Grecia</option>
-                                        <option value="haiti">Haití</option>
-                                        <option value="india">India</option>
-                                        <option value="japon">Japón</option>
-                                        <option value="kenia">Kenia</option>
-                                        <option value="luxemburgo">Luxemburgo</option>
-                                        <option value="mexico">México</option>
-                                        <option value="nigeria">Nigeria</option>
-                                        <option value="oman">Omán</option>
-                                        <option value="portugal">Portugal</option>
-                                        <option value="qatar">Qatar</option>
-                                        <option value="rusia">Rusia</option>
-                                        <option value="suecia">Suecia</option>
-                                        <option value="turquia">Turquía</option>
-                                        <option value="uganda">Uganda</option>
-                                        <option value="vietnam">Vietnam</option>
-                                        <option value="yemen">Yemen</option>
-                                        <option value="zambia">Zambia</option>
-                                    </select>
+                                    @include('crud::fields.slt_from_array', [ 'field' => [
+                                        'type' => 'slt_from_array',
+                                        'name' => 'lst-values-col-6',
+                                        'label' => [
+                                            'text' => 'País',
+                                            'name' => 'lst-cbx-col-6',
+                                        ],
+                                        'options' => [
+                                            'ninguno' => 'Ninguno',
+                                            'andorra' => 'Andorra',
+                                            'brasil' => 'Brasil',
+                                            'canada' => 'Canadá',
+                                            'dinamarca' => 'Dinamarca',
+                                            'egipto' => 'Egipto',
+                                            'francia' => 'Francia',
+                                            'grecia' => 'Grecia',
+                                            'haiti' => 'Haití',
+                                            'india' => 'India',
+                                            'japon' => 'Japón',
+                                            'kenia' => 'Kenia',
+                                            'luxemburgo' => 'Luxemburgo',
+                                            'mexico' => 'México',
+                                            'nigeria' => 'Nigeria',
+                                            'oman' => 'Omán',
+                                            'portugal' => 'Portugal',
+                                            'qatar' => 'Qatar',
+                                            'rusia' => 'Rusia',
+                                            'suecia' => 'Suecia',
+                                            'turquia' => 'Turquía',
+                                            'uganda' => 'Uganda',
+                                            'vietnam' => 'Vietnam',
+                                            'yemen' => 'Yemen',
+                                            'zambia' => 'Zambia',
+                                        ],
+                                        'allows_null' => false,
+                                    ]])
                                 </div>
                             </div>
                         </div>
@@ -246,6 +252,7 @@ $breadcrumbs = $breadcrumbs ?? $defaultBreadcrumbs;
                 </div>
             </div>
         </div>
+        </form>
         <div class="my-2 mx-3">
             <table id="crudTable" ref="crudTable"
             class="bg-white table table-striped table-hover rounded shadow-xs wrap border-xs mt-2" cellspacing="0">
@@ -668,7 +675,7 @@ $(document).ready(function () {
                 timerProgressBar: false,
                 didOpen: () => {
                     Swal.showLoading();
-                    setInterval(() => {
+                    setTimeout(() => {
                         Swal.close();
                     }, 3000);
                 },
