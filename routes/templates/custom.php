@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\Template\BaseCrudCrudController;
+use App\Http\Controllers\Admin\Template\PlainDatabaseAdvancedCrudController;
 use App\Http\Controllers\Admin\Template\PlainDatabaseCrudController;
 use App\Http\Controllers\Admin\Template\PlainFormContentCrudController;
 use Illuminate\Support\Facades\Route;
@@ -12,6 +13,10 @@ if(!function_exists('custom_api'))
 {
     function custom_api() 
     {
+
+        Route::post('/plain-database-advanced', 
+        [PlainDatabaseAdvancedCrudController::class, 'api_fetch'])
+        ->name('api.templates.plain.database.advanced');
         
     }
 }
@@ -35,6 +40,16 @@ if(!function_exists('custom_admin'))
         Route::get('/plain-form-content', 
         [PlainFormContentCrudController::class, 'setup'])
         ->name('templates.plain.form.content.crud');
+
+        Route::get('/plain-database-advanced', 
+        [PlainDatabaseAdvancedCrudController::class, 'setup'])
+        ->name('templates.plain.database.advanced');
+
+        Route::group(['prefix' => '/api/v1'], function () {
+
+            // !! Definir rutas de API con PREFIJO ADMIN
+
+        });
     }
 }
 
