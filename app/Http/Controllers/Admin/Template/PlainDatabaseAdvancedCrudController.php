@@ -31,7 +31,7 @@ class PlainDatabaseAdvancedCrudController extends CrudController
             ['id' => 3,     'nombre' => 'Ricardo F.',       'sexo' => 'hombre',     'hobbie' => 'lectura',          'profesion' => 'ninguno',       'pais' => 'ninguno'],
             ['id' => 4,     'nombre' => 'Maria R.',         'sexo' => 'mujer',      'hobbie' => 'ninguno',          'profesion' => 'ninguno',       'pais' => 'ninguno'],
             ['id' => 5,     'nombre' => 'Lepe G.',          'sexo' => 'mujer',      'hobbie' => 'codear',           'profesion' => 'backend',       'pais' => 'andorra'],
-            ['id' => 6,     'nombre' => 'Carles T.',        'sexo' => 'hombre',     'hobbie' => 'ninguno',          'profesion' => 'ninguno',       'pais' => 'ninguno'],
+            ['id' => 6,     'nombre' => 'Carles T.',        'sexo' => 'hombre',     'hobbie' => 'ninguno',          'profesion' => 'ninguno',       'pais' => 'mexico'],
             ['id' => 7,     'nombre' => 'Merie H.',         'sexo' => 'mujer',      'hobbie' => 'lectura',          'profesion' => 'ninguno',       'pais' => 'ninguno'],
             ['id' => 8,     'nombre' => 'Junio P',          'sexo' => 'hombre',     'hobbie' => 'codear',           'profesion' => 'frontend',      'pais' => 'egipto'],
             ['id' => 9,     'nombre' => 'Agoust R.',        'sexo' => 'hombre',     'hobbie' => 'ninguno',          'profesion' => 'ninguno',       'pais' => 'ninguno'],
@@ -39,7 +39,7 @@ class PlainDatabaseAdvancedCrudController extends CrudController
             ['id' => 11,    'nombre' => 'Saul G.',          'sexo' => 'hombre',     'hobbie' => 'codear',           'profesion' => 'fullstack',     'pais' => 'mexico'],
             ['id' => 12,    'nombre' => 'Fredddy B.',       'sexo' => 'hombre',     'hobbie' => 'ejercicio',        'profesion' => 'ninguno',       'pais' => 'ninguno'],
             ['id' => 13,    'nombre' => 'Josh L.',          'sexo' => 'hombre',     'hobbie' => 'lectura',          'profesion' => 'ninguno',       'pais' => 'ninguno'],
-            ['id' => 14,    'nombre' => 'Karla D.',         'sexo' => 'mujer',      'hobbie' => 'ninguno',          'profesion' => 'ninguno',       'pais' => 'ninguno'],
+            ['id' => 14,    'nombre' => 'Karla D.',         'sexo' => 'mujer',      'hobbie' => 'ninguno',          'profesion' => 'ninguno',       'pais' => 'mexico'],
             ['id' => 15,    'nombre' => 'Lepe F.',          'sexo' => 'mujer',      'hobbie' => 'codear',           'profesion' => 'backend',       'pais' => 'andorra'],
             ['id' => 16,    'nombre' => 'Paola G.',         'sexo' => 'hombre',     'hobbie' => 'ninguno',          'profesion' => 'ninguno',       'pais' => 'ninguno'],
             ['id' => 17,    'nombre' => 'Meravi H.',        'sexo' => 'mujer',      'hobbie' => 'ninguno',          'profesion' => 'ninguno',       'pais' => 'ninguno'],
@@ -56,10 +56,32 @@ class PlainDatabaseAdvancedCrudController extends CrudController
         $tableData = collect(json_decode($request->input('tableData'), true));
 
         return response()->json([
-            'title' => '',
-            'messsge' => '',
+            'title' => 'Plain Database Advanced',
+            'messsge' => 'Catálogo de cuentas se ha guardo correctamente',
             'data' => [
-                'tableData' => $tableData->first(),
+                'tableData_first' => $tableData->first(),
+                'tableData_last' => $tableData->last(),
+                'tableData_take' => $tableData->take(5),
+                'tableData_sum' => $tableData->sum('id'),
+                'tableData_isEmpty' => $tableData->isEmpty(),
+                'tableData_filter' => $tableData->filter(fn($registro) => $registro['sexo'] === 'hombre'),
+                'tableData_contains' => $tableData->contains('pais', 'japon'),
+                'tableData_whereIn' => $tableData->whereIn('pais', ['mexico', 'japon']),
+                'tableData_where_like' => $tableData->where('nombre', 'like', '%F.%'),
+                'tableData_where' => $tableData->where('pais', 'mexico'),
+                'tableData_pluck' => $tableData->pluck('pais'),
+                'tableData_unique' => $tableData->unique(),
+                'tableData_groupBy' => $tableData->groupBy('profesion'),
+                'tableData_countBy' => $tableData->countBy('sexo'),
+                'tableData_groupBy_toArray' => $tableData->groupBy('pais')->toArray(),
+                'tableData_pluck_unique_values_toArray' => $tableData->pluck('pais')->unique()->values()->toArray(),
+                'tableData_groupBy_map_toArray' => $tableData->groupBy('profesion')->map(fn($grupo) => $grupo->count())->toArray(),
+                'tableData_groupBy_map_x3_toArray' => $tableData->groupBy('pais')->map(function ($grupoPorPais) {
+                    return $grupoPorPais->groupBy('profesion') // Agrupa por profesión dentro de cada país
+                            ->map(function ($grupoPorProfesion) {
+                                return $grupoPorProfesion->groupBy('sexo'); // Agrupa por sexo dentro de cada profesión
+                            });
+                })->toArray(),
             ]
         ], 200);
     }
