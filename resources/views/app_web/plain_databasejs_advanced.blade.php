@@ -149,7 +149,7 @@ $breadcrumbs = $breadcrumbs ?? $defaultBreadcrumbs;
                             <div class="col-md-2">
                                 <div class="form-group">
                                     <label><input type="checkbox" class="form-check-input-css" name="lst-cbx-col-3" id="lst-cbx-col-3">&nbsp;<b>Sexo</b></label>
-                                    <select class="form-control" id="slt-values-col-3">
+                                    <select class="form-control" id="lst-values-col-3">
                                         <option value="hombre">Hombre</option>
                                         <option value="mujer">Mujer</option>
                                     </select>
@@ -302,7 +302,11 @@ $breadcrumbs = $breadcrumbs ?? $defaultBreadcrumbs;
                 width: '20px'
             },
             {
-                targets: [2, 3, 4, 5, 6],
+                targets: [2, 3, 6],
+                width: '120px'
+            },
+            {
+                targets: [4, 5],
                 width: '120px'
             },
             {
@@ -377,17 +381,48 @@ $breadcrumbs = $breadcrumbs ?? $defaultBreadcrumbs;
 
     const configCellEdit = {
         enableCellEdit: true,
-        columns: [2],
+        columns: [2, 3, 4, 5, 6],
         eventClick: 'dblclick',
         onUpdate: myCallbackFunction,
         inputTypes: [
-            {
-              column:2,
-              type: 'text',
-              options: null
-            },
-        ]
-    }
+        {
+            column:2,
+            type: 'text',
+            options: null
+        },
+        {
+            column:3,
+            type: 'list',
+            options: Array.from(document.getElementById("lst-values-col-3").options).map(option => ({
+                value: option.value,
+                display: option.text
+            })),
+        },
+        {
+            column:4,
+            type: 'list',
+            options: Array.from(document.getElementById("lst-values-col-4").options).map(option => ({
+                value: option.value,
+                display: option.text
+            })),
+        },
+        {
+            column:5,
+            type: 'list',
+            options: Array.from(document.getElementById("lst-values-col-5").options).map(option => ({
+                value: option.value,
+                display: option.text
+            })),
+        },
+        {
+            column:6,
+            type: 'list',
+            options: Array.from(document.getElementById("lst-values-col-6").options).map(option => ({
+                value: option.value,
+                display: option.text
+            })),
+        },
+    ]};
 
     audfk.crud.initDataTable(configDataTable, configCellEdit);
 </script>
@@ -509,7 +544,7 @@ $(document).ready(function () {
 
                 // change the level
                 if (lstCbxFiltro['lst-cbx-col-3']) {
-                    var nuevoNivel = $('#slt-values-col-3').val();
+                    var nuevoNivel = $('#lst-values-col-3').val();
                     fila_tabla.find('td:eq(3)').text(nuevoNivel ? nuevoNivel : '1');
                 }
 
@@ -573,7 +608,7 @@ $(document).ready(function () {
 
             if (lstCbxFiltro['lst-cbx-col-3']) {
                 columna_seleccionada_valor = audfk.crud.table.cell(dataIndex, 3).nodes().to$().text();
-                filtro_seleccionado_valor = $('#slt-values-col-3').val();
+                filtro_seleccionado_valor = $('#lst-values-col-3').val();
             } else if (lstCbxFiltro['lst-cbx-col-4']) {
                 columna_seleccionada_valor = audfk.crud.table.cell(dataIndex, 4).nodes().to$().text();
                 filtro_seleccionado_valor = $('#lst-values-col-4').val();
