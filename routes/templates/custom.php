@@ -14,6 +14,10 @@ if(!function_exists('custom_api'))
     function custom_api() 
     {
 
+        Route::post('/plain-form-content', 
+        [PlainFormContentCrudController::class, 'api_fetch'])
+        ->name('api.templates.plain.form.content');
+
         Route::post('/plain-database-advanced', 
         [PlainDatabaseAdvancedCrudController::class, 'api_fetch'])
         ->name('api.templates.plain.database.advanced');
