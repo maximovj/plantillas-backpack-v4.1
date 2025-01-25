@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Template;
 use App\Http\Requests\PlainFormContentRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
+use Illuminate\Http\Request;
 
 /**
  * Class PlainFormContentCrudController
@@ -26,6 +27,32 @@ class PlainFormContentCrudController extends CrudController
         $this->data['subtitle'] = 'Plantilla CRUD';
 
         return view('app_web.plain_form_content', $this->data);
+    }
+
+    public function api_fetch(Request $request) 
+    {
+        $request->validate([
+            'field_1_val' => 'required|string|min:3',
+            'file_excel' => 'required|mimes:xlsx,xls|max:2048',
+        ]);
+
+        $formData = collect($request->all());
+        $file_excel = $request->file('file_excel');
+
+        return response()->json([
+            'type' => 'success',
+            'title' => 'Plain Form Content',
+            'message' => 'Datos recibidos del formulario correctamente',
+            'data' => [
+                'formData' => $formData,
+                'file_excel' => [
+                    'nombre_original' => $file_excel->getClientOriginalName(),
+                    'extension' => $file_excel->getClientOriginalExtension(),
+                    'tipo_mime' => $file_excel->getMimeType(),
+                    'tamanio' => $file_excel->getSize(),
+                ],
+            ],
+        ], 200);
     }
     
 }
