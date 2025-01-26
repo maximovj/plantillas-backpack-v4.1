@@ -55,120 +55,118 @@ $breadcrumbs = $breadcrumbs ?? $defaultBreadcrumbs;
                 <div id="datatable_search_stack" class="mt-sm-0 mt-2 d-print-none"></div>
             </div>
         </div>
-        <form onsubmit="fnOnSubmit(event, this)">
-        <div class="card my-2">
-            <div class="card-body">
-                <div class="row">
-
-                    <div class="form-group col-sm-12 mb-3 required" element="div" bp-field-wrapper="true" bp-field-name="i-text" bp-field-type="text" bp-section="crud-field">
-                        <label for="i-text"><strong>Lorem ipsum dolor sit amet.</strong></label>
-                        <input type="text" class="form-control" name="i-text" placeholder="Lorem ipsum dolor sit amet." />
-                    </div>
-
-                    @include('crud::fields.select2_from_array', [ 'field' => [
-                        'name' => 'i-items',
-                        'label' => 'Lorem ipsum dolor sit amet',
-                        'type' => 'select2_from_array',
-                        'options' => [
-                            1 => 'Lorem ipsum dolor sit amet',
-                            2 => 'Lorem ipsum dolor sit amet',
-                            3 => 'Lorem ipsum dolor sit amet',
-                        ],
-                        'allows_null' => false,
-                    ]])
-
-                    <div class="form-group col-sm-12 mb-3 required" element="div" bp-field-wrapper="true" bp-field-name="i-checkbox" bp-field-type="checkbox" bp-section="crud-field">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="i-checkbox" id="columnIndiceCheck">
-                            <label class="form-check-label" for="columnIndiceCheck">Lorem ipsum dolor sit amet, consectetur adipisicing elit</label>
-                            <div id="passwordHelpBlock" style="color:#999;font-size:12px" class="form-text">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia repudiandae cumque error ea repellendus <b>doloribus excepturi</b>?
+        <form onsubmit="fnOnSubmit(event, this)" id="formulario-general">
+            <div class="card my-2">
+                <div class="card-body">
+                    <div class="row">
+    
+                        <div class="form-group col-sm-12 mb-3 required">
+                            <label for="field_1_val"><strong>Lorem ipsum dolor sit amet.</strong></label>
+                            <input type="text" class="form-control" name="field_1_val" placeholder="Lorem ipsum dolor sit amet." required />
+                        </div>
+                        @include('crud::fields.select2_from_array', [ 'field' => [
+                            'name' => 'field_2_val',
+                            'label' => 'Lorem ipsum dolor sit amet',
+                            'type' => 'select2_from_array',
+                            'options' => [
+                                1 => 'Lorem ipsum dolor sit amet',
+                                2 => 'Lorem ipsum dolor sit amet',
+                                3 => 'Lorem ipsum dolor sit amet',
+                            ],
+                            'allows_null' => false,
+                        ]])
+                        <div class="form-group col-sm-12 mb-3 required">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="field_3_val" id="columnIndiceCheck">
+                                <label class="form-check-label" for="columnIndiceCheck">Lorem ipsum dolor sit amet, consectetur adipisicing elit</label>
+                                <div id="passwordHelpBlock" style="color:#999;font-size:12px" class="form-text">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia repudiandae cumque error ea repellendus <b>doloribus excepturi</b>?
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div id="handleSelectPeriod" class="form-group col-sm-12 mb-3 required" element="div" bp-field-wrapper="true" bp-field-name="i-radio" bp-field-type="text" bp-section="crud-field">
-                        <label for="i-radio"><strong>Lorem ipsum dolor sit amet.</strong></label>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="i-radio" id="anualRadio" value="anual" checked>
-                            <label class="form-check-label" for="anualRadio">
-                                <b>Lorem, ipsum.</b> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum dolor maiores sequi quas recusandae temporibus.
-                            </label>
-                        </div>
-
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="i-radio" id="mensualRadio" value="mensual">
-                            <label class="form-check-label" for="mensualRadio">
-                                <b>Lorem, ipsum.</b> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo vel laboriosam, obcaecati culpa minus dicta!
-                            </label>
-                        </div>
-                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="i-radio" id="periodoEspecificoRadio" value="periodo_especifico">
-                            <label class="form-check-label" for="periodoEspecificoRadio">
-                                <b>Lorem, ipsum.</b> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam architecto aliquid dicta magni dolor necessitatibus.
-                            </label>
-                        </div>
-                    </div>
-
-                    <div id="i-select" class="form-group col-sm-12 mb-3 required" element="div" bp-field-wrapper="true" bp-field-name="i-select" bp-field-type="select_from_array" bp-section="crud-field">
-                        <label><strong>Lorem ipsum dolor sit amet.</strong></label>
-                        <select name="ylect" class="form-control">
-                            <option value="0">Lorem, ipsum.</option>
-                            <option value="1">Lorem, ipsum.</option>
-                            <option value="2">Lorem, ipsum.</option>
-                            <option value="3">Lorem, ipsum.</option>
-                        </select>
-                    </div>
-
-                    <div class="col-sm-12 mb-3 required p-3" element="div" bp-field-wrapper="true" bp-field-name="archivo-excel" bp-field-type="file" bp-section="crud-field">
-                        <label><strong>Seleccione una balanza de comprobación <span class="cbox-req-css"></span></strong></label>
-                        <div class="form-group">
-                            <div class="custom-file">
-                                <input type="file" name="archivo-excel" class="custom-file-input is-invalid" accept=".xlsx, .xls" required>
-                                <label class="custom-file-label" for="customFileLang">Seleccione un archivo excel .xlsx o .xls...</label>
-                                <div class="invalid-feedback">Este archivo no tiene extensión .xlsx o .xls</div>
+                        <div class="form-group col-sm-12 mb-3 required">
+                            <label for="field_4_val"><strong>Lorem ipsum dolor sit amet.</strong></label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="field_4_val" id="anualRadio" value="anual" checked>
+                                <label class="form-check-label" for="anualRadio">
+                                    <b>Lorem, ipsum.</b> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum dolor maiores sequi quas recusandae temporibus.
+                                </label>
                             </div>
-                            <div class="input-group-append">
-                                <span class="input-group-text">Balanza de comprobación</span>
+    
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="field_4_val" id="mensualRadio" value="mensual">
+                                <label class="form-check-label" for="mensualRadio">
+                                    <b>Lorem, ipsum.</b> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo vel laboriosam, obcaecati culpa minus dicta!
+                                </label>
+                            </div>
+                             <div class="form-check">
+                                <input class="form-check-input" type="radio" name="field_4_val" id="periodoEspecificoRadio" value="periodo_especifico">
+                                <label class="form-check-label" for="periodoEspecificoRadio">
+                                    <b>Lorem, ipsum.</b> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam architecto aliquid dicta magni dolor necessitatibus.
+                                </label>
+                            </div>
+                        </div>
+    
+                        <div class="form-group col-sm-12 mb-3 required">
+                            <label><strong>Lorem ipsum dolor sit amet.</strong></label>
+                            <select name="field_5_val" class="form-control">
+                                <option value="0">Lorem, ipsum.</option>
+                                <option value="1">Lorem, ipsum.</option>
+                                <option value="2">Lorem, ipsum.</option>
+                                <option value="3">Lorem, ipsum.</option>
+                            </select>
+                        </div>
+    
+                        <div class="col-sm-12 mb-3 p-3 required">
+                            <label><strong>Seleccione una balanza de comprobación <span class="cbox-req-css"></span></strong></label>
+                            <div class="form-group">
+                                <div class="custom-file">
+                                    <input type="file" name="file_excel" class="custom-file-input is-invalid" accept=".xlsx, .xls" required>
+                                    <label class="custom-file-label" for="customFileLang">Seleccione un archivo excel .xlsx o .xls...</label>
+                                    <div class="invalid-feedback">Este archivo no tiene extensión .xlsx o .xls</div>
+                                </div>
+                                <div class="input-group-append">
+                                    <span class="input-group-text">Balanza de comprobación</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="my-2 mx-3">
-            <table id="crudTable" ref="crudTable"
-            class="bg-white table table-striped table-hover rounded shadow-xs wrap border-xs mt-2" cellspacing="0">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Nombre</th>
-                            <th><span data-toggle="tooltip" title="Seleccione tu hobbie">Hobbie</span></th>
-                            <th><span data-toggle="tooltip" title="Acciones">Acciones</span></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <th>ID</th>
-                            <th>Nombre</th>
-                            <th>Hobbie</th>
-                            <th data-skip="on"></td>
-                        </tr>
-                        <tr>
-                            <th>ID</th>
-                            <th>Nombre</th>
-                            <th>Hobbie</th>
-                            <th>Acciones</td>
-                        </tr>
-                    </tfoot>
-            </table>
-        </div>
-        <div>
-            <button class="btn btn-success"><i class="la la-check-circle"></i>Guardar</button>
-            <button class="btn btn-warning txt-white"><i class="la la-check-circle"></i>Actualizar</button>
-            <button class="btn btn-danger"><i class="la la-check-circle"></i>Eliminar</button>
-        </div>
+            <div class="my-2 mx-3">
+                <table id="crudTable" ref="crudTable"
+                class="bg-white table table-striped table-hover rounded shadow-xs wrap border-xs mt-2" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th><span data-toggle="tooltip" title="Seleccione tu hobbie">Hobbie</span></th>
+                                <th><span data-toggle="tooltip" title="Acciones">Acciones</span></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Hobbie</th>
+                                <th data-skip="on"></td>
+                            </tr>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Hobbie</th>
+                                <th>Acciones</td>
+                            </tr>
+                        </tfoot>
+                </table>
+            </div>
+            <div>
+                <button class="btn btn-success"><i class="la la-check-circle"></i>Guardar</button>
+                <button class="btn btn-warning txt-white"><i class="la la-check-circle"></i>Actualizar</button>
+                <button class="btn btn-danger"><i class="la la-check-circle"></i>Eliminar</button>
+            </div>
         </form>
     </div>
 </div>
@@ -289,6 +287,27 @@ $breadcrumbs = $breadcrumbs ?? $defaultBreadcrumbs;
                 /* Code here */
                 Swal.showLoading();
                 setTimeout(()=>{ Swal.close(); }, 2000);
+
+                // Crea el FormData a partir del formulario
+                const formData = new FormData(form);
+
+                // Si necesitas algún valor adicional o transformar algún dato:
+                formData.set('field_3_val', form.field_3_val.checked);
+
+                // FormData ahora contiene todos los datos del formulario automáticamente
+                const formFields = [...formData.entries()];
+
+                const fields = {};
+                formData.forEach((value, key) => {
+                    fields[key] = value;
+                });
+
+                console.log('Mostrar los datos del formulario:',{
+                    form,
+                    formFields,
+                    fields,
+                });
+
             },
             willClose: () => {
                 Swal.close();

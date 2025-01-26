@@ -636,10 +636,7 @@ $(document).ready(function () {
             // Perform search based on selected and filter values
             let columna_seleccionada = String(columna_seleccionada_valor).trim();
             let filtro_seleccionado = String(filtro_seleccionado_valor).trim();
-            console.log({
-                columna_seleccionada_valor,
-                filtro_seleccionado_valor
-            });
+            
             return filtro_seleccionado.includes(columna_seleccionada);
         }];
 
