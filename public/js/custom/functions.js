@@ -1,7 +1,5 @@
 /*
- * Victor J. <victor.maximo@mtlc.com.mx>
- * date 22/01/2024
- * update 08/02/2024
+ * Victor J. 
  * desc Custom JavaScript
  */
 

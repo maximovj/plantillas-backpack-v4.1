@@ -1,7 +1,6 @@
 @php
     /**
-     * @author Victor J. <victor.maximo@mtlc.com.mx>
-     * @date 06/03/2024
+     * @author Victor J. 
      * @desc This template includes the BackPack CRUD
      * @required $this->data['crud'] = $this->crud;
      * @see https://backpackforlaravel.com/docs/6.x/crud-tutorial#the-controller-1

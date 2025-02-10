@@ -1,7 +1,6 @@
 @php
     /**
-     * @author Victor J. <victor.maximo@mtlc.com.mx>
-     * @date 06/03/2024
+     * @author Victor J. 
      * @desc This template include CRUD for BackPack
      * @return void
      */
